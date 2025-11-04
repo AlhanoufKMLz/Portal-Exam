@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService{
     private RoleRepository roleRepository;
 
 
-    //creating user
+    //creat user
     @Override
     public User createUser(User user, Set<UserRole> userRoles) throws Exception {
         User local = this.userRepository.findByUsername(user.getUsername());
@@ -38,6 +38,19 @@ public class UserServiceImpl implements UserService{
         }
         return local;
     }
+
+
+    //get user by username
+    @Override
+    public User getUser(String username) {
+        return this.userRepository.findByUsername(username);
+    }
+
+    //delete user by id
+    public void deleteUser(Long userId){
+        this.userRepository.deleteById(userId);
+    }
+
 
 
 }
