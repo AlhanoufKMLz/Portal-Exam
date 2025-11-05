@@ -1,0 +1,46 @@
+<div class="register-container">
+    <h1>Register Here</h1>
+
+    <p>{{ user | json }}</p>
+  
+    <form (ngSubmit)="formSubmit()" class="register-form">
+  
+        <!-- username field -->
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="user.username" name="username">
+        </mat-form-field>
+  
+        <!-- name fields -->
+        <div class="name-row">
+            <!-- first name field -->
+            <mat-form-field appearance="fill" class="half-width">
+                <mat-label>First Name</mat-label>
+                <input matInput [(ngModel)]="user.firstName" name="firstName">
+            </mat-form-field>
+  
+            <!-- last name field -->
+            <mat-form-field appearance="fill" class="half-width">
+                <mat-label>Last Name</mat-label>
+                <input matInput [(ngModel)]="user.lastName" name="lastName">
+            </mat-form-field>
+        </div>
+  
+        <!-- email field -->
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" [(ngModel)]="user.email" name="email">
+        </mat-form-field>
+  
+        <!-- password field -->
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="user.password" name="password">
+        </mat-form-field>
+  
+        <!-- button -->
+        <button mat-flat-button color="primary" type="submit" class="full-width">Register</button>
+  
+    </form>
+</div>
+  
