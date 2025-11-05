@@ -1,7 +1,5 @@
 <div class="register-container">
     <h1>Register Here</h1>
-
-    <p>{{ user | json }}</p>
   
     <form (ngSubmit)="formSubmit()" class="register-form">
   
@@ -9,6 +7,7 @@
         <mat-form-field appearance="fill" class="full-width">
             <mat-label>Username</mat-label>
             <input matInput [(ngModel)]="user.username" name="username">
+            <mat-hint>Username must bee unique</mat-hint>
         </mat-form-field>
   
         <!-- name fields -->
