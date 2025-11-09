@@ -6,7 +6,7 @@
         <!-- username field -->
         <mat-form-field appearance="fill" class="full-width">
             <mat-label>Username</mat-label>
-            <input matInput [(ngModel)]="user.username" name="username">
+            <input matInput [(ngModel)]="user.username" name="username" required>
             <mat-hint>Username must bee unique</mat-hint>
         </mat-form-field>
   
@@ -15,26 +15,26 @@
             <!-- first name field -->
             <mat-form-field appearance="fill" class="half-width">
                 <mat-label>First Name</mat-label>
-                <input matInput [(ngModel)]="user.firstName" name="firstName">
+                <input matInput [(ngModel)]="user.firstName" name="firstName" required>
             </mat-form-field>
   
             <!-- last name field -->
             <mat-form-field appearance="fill" class="half-width">
                 <mat-label>Last Name</mat-label>
-                <input matInput [(ngModel)]="user.lastName" name="lastName">
+                <input matInput [(ngModel)]="user.lastName" name="lastName" required>
             </mat-form-field>
         </div>
   
         <!-- email field -->
         <mat-form-field appearance="fill" class="full-width">
             <mat-label>Email</mat-label>
-            <input matInput type="email" [(ngModel)]="user.email" name="email">
+            <input matInput type="email" [(ngModel)]="user.email" name="email" required>
         </mat-form-field>
   
         <!-- password field -->
         <mat-form-field appearance="fill" class="full-width">
             <mat-label>Password</mat-label>
-            <input matInput type="password" [(ngModel)]="user.password" name="password">
+            <input matInput type="password" [(ngModel)]="user.password" name="password" required>
         </mat-form-field>
   
         <!-- button -->

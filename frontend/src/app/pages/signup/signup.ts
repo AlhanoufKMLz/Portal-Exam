@@ -1,10 +1,11 @@
-import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { UserService } from '../../services/user-service';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -13,13 +14,13 @@ import { UserService } from '../../services/user-service';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    JsonPipe,
+    MatSnackBarModule,
   ],
   templateUrl: './signup.html',
   styleUrl: './signup.scss',
 })
 export class Signup {
-  constructor(private userService:UserService){}
+  constructor(private userService:UserService, private snack:MatSnackBar){}
 
   public user = {
     username: '',
@@ -30,15 +31,25 @@ export class Signup {
   };
 
   formSubmit(){
-    //add user > user service
+    //check the username
+    if(this.user.username == '' || this.user.username == null){
+      this.snack.open("Username is required !!", "ok",{
+        duration: 3000,
+      });
+      return;
+    }
+
+    //add user : userservice
     this.userService.addUser(this.user).subscribe({
-      next: (data) => {
+      next: (data:any) => {
         console.log(data);
-        alert('success');
+        Swal.fire("Welcome "+ data.firstName +",", "You have been successfully registered.", "success");
       },
       error: (err) => {
         console.error(err);
-        alert('something went wrong');
+        this.snack.open('something went wrong !!', "", {
+          duration: 3000,
+        });
       },
       complete: () => {
         console.log('Completed');
