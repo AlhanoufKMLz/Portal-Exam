@@ -1,1 +1,27 @@
-<p>login works!</p>
+<div class="register-container">
+    <h1>Login</h1>
+  
+    <form (ngSubmit)="formSubmit()" class="register-form">
+  
+        <!-- username field -->
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput [(ngModel)]="user.username" name="username" required>
+        </mat-form-field>
+  
+        <!-- password field -->
+        <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="user.password" name="password" required>
+        </mat-form-field>
+  
+        <!-- button -->
+        <button mat-flat-button color="primary" type="submit" class="full-width">Login</button>
+
+        <span>
+            Don't have an account?
+            <a href="/signup" class="link">Register now</a>
+        </span>
+  
+    </form>
+</div>
